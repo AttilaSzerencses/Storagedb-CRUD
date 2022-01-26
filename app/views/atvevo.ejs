@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Átvevők</title>
+</head>
+<body>
+<%- include('header.ejs') %>
+
+<% if (removed){ %>
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    Sikers törlés!
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<% } %>
+
+<div class="row">
+    <div class="col-6">
+        <h1>Átvevők</h1>
+    </div>
+    <div class="col-6 d-flex justify-content-end">
+        <a href="/addatvevo" type="button" class="btn btn-primary align-self-center">+ Átvevő hozzáadás</a>
+    </div>
+</div>
+
+<table class="table table-bordered">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Vezetéknév</th>
+        <th scope="col">Keresztnév</th>
+        <th scope="col">Email</th>
+        <th scope="col">Telefonszám</th>
+        <th scope="col" class="text-end">Módosítás/Hozzáadás</th>
+    </tr>
+    </thead>
+    <tbody>
+    <%for (const atvevo of atvevok) { %>
+        <tr>
+            <td><%= atvevo.id %></td>
+            <td><%= atvevo.vezeteknev %></td>
+            <td><%= atvevo.keresztnev %></td>
+            <td><%= atvevo.email %></td>
+            <td><%= atvevo.telefonszam %></td>
+            <td class="text-end">
+                <a href="/editatvevo/<%= atvevo.id %>" type="button" class="btn btn-light btn-small"><i class="bi bi-pencil"></i>
+                    Edit</a>
+                <a href="/deleteatvevo/<%= atvevo.id %>" type="button" class="btn btn-light btn-small"><i class="bi bi-person-x"></i> Delete</a>
+            </td>
+        </tr>
+    <% } %>
+    </tbody>
+</table>
+
+<div class="row">
+    <div class="col-6">
+        <h1>Átvevők lakcíme</h1>
+    </div>
+    <div class="col-6 d-flex justify-content-end">
+        <a href="/addhelyszin" type="button" class="btn btn-primary align-self-center">+ Helyszín hozzáadás</a>
+    </div>
+</div>
+
+<table class="table table-bordered">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Átvevő_id</th>
+        <th scope="col">Irányítószám</th>
+        <th scope="col">Település</th>
+        <th scope="col">Utca</th>
+        <th scope="col">Házszám</th>
+        <th scope="col">Egyéb</th>
+        <th scope="col" class="text-end">Módosítás/Hozzáadás</th>
+    </tr>
+    </thead>
+    <tbody>
+    <%for (const helyszin of helyszinek) { %>
+        <tr>
+            <td><%= helyszin.id %></td>
+            <td><%= helyszin.hatvevo_id %></td>
+            <td><%= helyszin.iranyitoszam %></td>
+            <td><%= helyszin.telepules %></td>
+            <td><%= helyszin.utca %></td>
+            <td><%= helyszin.hazszam %></td>
+            <td><%= helyszin.egyeb %></td>
+            <td class="text-end">
+                <a href="/edithelyszin/<%= helyszin.id %>" type="button" class="btn btn-light btn-small"><i class="bi bi-pencil"></i>
+                    Edit</a>
+                <a href="/deletehelyszin/<%= helyszin.id %>" type="button" class="btn btn-light btn-small"><i class="bi bi-person-x"></i> Delete</a>
+            </td>
+        </tr>
+    <% } %>
+    </tbody>
+</table>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+</body>
+</html>
+

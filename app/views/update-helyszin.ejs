@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Helyszin módosítás</title>
+</head>
+<body>
+<%- include('header.ejs') %>
+
+<form class="row g-3 needs-validation" method="POST" action="/updatehelyszin" novalidate>
+    <div class="col-12">
+        <h1>Helyszin módosítás</h1>
+    </div>
+    <div>
+        <input type="hidden" id="id"  name="id" value="<%= model.id %>">
+    </div>
+    <div class="col-6">
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="hatvevo_id"   placeholder="Átvevő_ID" name="hatvevo_id" value="<%= model.hatvevo_id %>">
+            <label for="hatvevo_id">Átvevő_ID</label>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="iranyitoszam" placeholder="Irányítószám" name="iranyitoszam" value="<%= model.iranyitoszam %>">
+            <label for="iranyitoszam">Irányítószám</label>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="telepules" placeholder="Település" name="telepules" value="<%= model.telepules %>">
+            <label for="telepules">Település</label>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="utca"placeholder="Utca" name="utca" value="<%= model.utca %>">
+            <label for="utca">Utca</label>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="hazszam"placeholder="Házszám" name="hazszam" value="<%= model.hazszam %>">
+            <label for="hazszam">Házszám</label>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="egyeb"placeholder="Egyéb" name="egyeb" value="<%= model.egyeb %>">
+            <label for="egyeb">Egyéb</label>
+        </div>
+    </div>
+    <div class="col-12 d-grid">
+        <button class="btn btn-primary" type="submit">Módosítás</button>
+    </div>
+</form>
+</body>
+</html>

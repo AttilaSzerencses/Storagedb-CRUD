@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Áruk</title>
+</head>
+<body>
+<%- include('header.ejs') %>
+
+<div class="col-6">
+    <h1>Statisztika</h1>
+</div>
+<table class="table table-bordered">
+    <br>
+    <h2>Legtöbb almát vásárló adatai:</h2>
+    <tr>
+        <td>Neve: <%= maxalmak.vezeteknev %> <%=maxalmak.keresztnev%> </td>
+        <td>Mennyiség: <%= maxalmak.db %> db</td>
+    </tr>
+</table>
+<table class="table table-bordered">
+    <br>
+    <h2>Tunyogmatolcsi lakosok:</h2>
+    <% for (const tlakos of tlakosok) {%>
+        <tr>
+            <td>Név:  </td>
+            <td><%= tlakos.vezeteknev %> <%=tlakos.keresztnev%></td>
+        </tr>
+    <% } %>
+</table>
+<table class="table table-bordered">
+    <br>
+    <h2>Legtöbb alkalommal beszállító cég neve:</h2>
+    <tr>
+        <td>Neve: <%= lbeszallito.nev %> </td>
+        <td>Mennyiség: <%= lbeszallito.db %> db</td>
+    </tr>
+</table>
+<table class="table table-bordered">
+    <br>
+    <h2>Azoknak az átvevőknek a nevük abc sorrendben, akik még nem rendeltek tejet:</h2>
+    <% for (const nemvitt of nemvittek) {%>
+    <tr>
+        <td>Név: <%= nemvitt.vezeteknev %> <%= nemvitt.keresztnev %> </td>
+    </tr>
+    <% } %>
+</table>
+
+<%- include('chart.ejs') %>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+</body>
+</html>
+

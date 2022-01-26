@@ -1,0 +1,40 @@
+<html>
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Áru neve');
+            data.addColumn('number', 'Darab');
+            let arukneve = [];
+            let arukmennyisege = [];
+            <% for(aru of aruk) {%>
+            arukneve.push("<%=aru.nev%>");
+            arukmennyisege.push("<%=aru.mennyiseg%>");
+            <% } %>
+            for (let i = 0; i < arukneve.length; i++){
+                data.addRows([
+                    [arukneve[i], parseInt(arukmennyisege[i])]
+                ]);
+            }
+
+
+
+            // Set chart options
+            var options = {'title':'Áruk kilistázása darabszám szerint',
+                'width':1700,
+                'height':1400};
+
+            // Instantiate and draw our chart, passing in some options.
+            var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+    </script>
+</head>
+
+<body>
+<div id="chart_div"></div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Átvevő módosítás</title>
+</head>
+<body>
+<%- include('header.ejs') %>
+
+
+<form class="row g-3 needs-validation" method="POST" action="/updateatvevo" novalidate>
+    <div class="col-12">
+        <h1>Átvevő módosítás</h1>
+    </div>
+    <div>
+        <input type="hidden" id="id"  name="id" value="<%= model.id %>">
+    </div>
+    <div class="col-6">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="vezeteknev" placeholder="Vezetéknév" name="vezeteknev" value="<%= model.vezeteknev %>">
+            <label for="vezeteknev">Vezetéknév</label>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="keresztnev" placeholder="Keresztnév" name="keresztnev" value="<%= model.keresztnev %>">
+            <label for="keresztnev">Keresztnév</label>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="email"placeholder="Email" name="email" value="<%= model.email %>">
+            <label for="email">Email</label>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="telefonszam"placeholder="Telefonszám" name="telefonszam" value="<%= model.telefonszam %>">
+            <label for="email">Telefonszám</label>
+        </div>
+    </div>
+    <div class="col-12 d-grid">
+        <button class="btn btn-primary" type="submit">Módosítás</button>
+    </div>
+</form>
+</body>
+</html>

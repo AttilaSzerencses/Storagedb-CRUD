@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Főoldal</title>
+</head>
+<body>
+<%- include('header.ejs') %>
+<main role="main" class="container">
+    <div style="margin: auto; width: 50%; padding: 10px;">
+        <h1>Üdvözöllek az adabázis főoldalán.</h1>
+        <p class="lead">Ezen az oldalon tudod törölni a teljes adatbázist a lenti gombbal.</p>
+        <p class="lead">Törlés esetén újra importálni kell az adatbázist, különben nem fog lefutni a program.</p>
+        <form action="/deletedb" method="post">
+            <input type="submit" value="Adatbázis törlése"></input>
+        </form>
+    </div>
+
+</main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+</body>
+</html>
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiadás módosítás</title>
+</head>
+<body>
+<%- include('header.ejs') %>
+
+<form class="row g-3 needs-validation" method="POST" action="/updatekiadas" novalidate>
+    <div class="col-12">
+        <h1>Áru kiadás módosítás</h1>
+    </div>
+    <div>
+        <input type="hidden" id="id"  name="id" value="<%= model.id %>">
+    </div>
+    <div class="col-6">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="termeknev" placeholder="Termék neve" name="termeknev" value="<%= model.termeknev %>">
+            <label for="termeknev">Termék neve</label>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="mennyiseg"placeholder="Mennyiség" name="mennyiseg" value="<%= model.mennyiseg %>">
+            <label for="mennyiseg">Mennyiség</label>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="Dátum" placeholder="Egységár" name="datum" value="<%= model.datum %>">
+            <label for="datum">Dátum</label>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="atvevo_id" placeholder="Átvevő_ID" name="atvevo_id" value="<%= model.satvevo_id %>">
+            <label for="atvevo_id">Átvevő_ID</label>
+        </div>
+    </div>
+    <div class="col-12 d-grid">
+        <button class="btn btn-primary" type="submit">Módosítás</button>
+    </div>
+</form>
+</body>
+</html>
